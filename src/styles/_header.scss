@@ -6,7 +6,7 @@
     position: absolute;
     left: 0;
     top: 100px;
-
+    z-index: 5;
     letter-spacing: 1px;
     font-family:  'Bai Jamjuree', sans-serif;
     color: #d51616;
@@ -32,6 +32,12 @@
         font-size: 60px;
         color: rgb(250, 250, 248);
     }
-  
 
+}
+
+.lineParent{
+  overflow: hidden;
+  .lineChildren{
+    transform: translate(0, 500px);
+  }
 }

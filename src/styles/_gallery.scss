@@ -1,7 +1,9 @@
 .gallery-wrap {
-    background-color: #6a3e3f;
+    //background-color: #6a3e3f;
     margin-left: -5vw;
     margin-right: -5vw;
+    //height:min-content;
+    //clip-path: inset(15em 0);
   }
   
   .gallery-counter {
@@ -32,7 +34,7 @@
   
   .gallery {
     height: 80vh;
-  
+    
     padding: 10vh 0;
     width: 400%;
     display: flex;
@@ -40,8 +42,8 @@
   
     .gallery-item {
       width: 100%;
-      height: 100%;
-      position: relative;
+      height:300px;
+      position: absolute;
       will-change: transform;
     }
   
@@ -85,10 +87,16 @@
     }
     .gallery-item-wrapper {
       aspect-ratio: 16/9;
-      height: 100%;
-      display: grid;
-      grid-template-columns: 20vw 1fr 200px;
+      background: blueviolet;
+      padding:  100px 0px 0px 0px;;
+      height: 80%;
+      //display: grid;
+      //grid-template-columns: 20vw 1fr 200px;
       width: 100vw;
+
+      .gallery-item{
+        max-width:60%;
+      }
   
       &.is-reveal {
         .gallery-item-image {

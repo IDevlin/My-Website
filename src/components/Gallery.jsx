@@ -46,6 +46,7 @@ function GalleryItem({
   const ref = useRef(null);
 
   const onScreen = useOnScreen(ref, 0.5);
+  console.log(onScreen)
   
   useEffect(() => {
     if (onScreen) {
@@ -55,10 +56,11 @@ function GalleryItem({
 
   return (
     <div
-      className={cn("gallery-item-wrapper", { "is-reveal": onScreen })}
-      ref={ref}
+    className={cn("gallery-item-wrapper", { "is-reveal": onScreen })}
+    ref={ref}
     >
-      <div></div>
+      
+      
       <div className={"gallery-item"}>
         <div className="gallery-item-info">
           <h1 className="gallery-info-title">{title}</h1>
@@ -72,7 +74,8 @@ function GalleryItem({
         ></div>
         </a>
       </div>
-      <div></div>
+     
+
     </div>
   );
 }
@@ -98,6 +101,7 @@ export default function Gallery({ src, index, columnOffset }) {
           trigger: ref.current,
           scroller: "#main-container",
           pin: true,
+          triggerHook: 0,
           scrub: 0.5,
           snap: 1 / (sections.length - 1),
           end: () => `+=${ref.current.offsetWidth}`,
@@ -107,25 +111,24 @@ export default function Gallery({ src, index, columnOffset }) {
     });
   }, []);
 
-  const handleUpdateActiveImage = (index) => {
+  const updateActiveImage = (index) => {
     setActiveImage(index + 1);
   };
 
   return (
     <section data-scroll-section className="section-wrapper gallery-wrap">
-
       <div className="gallery" ref={ref}>
         <div className="gallery-counter">
           <span>{activeImage}</span>
-          <span className="divider" />
+          <span className="divider"/>
           <span>{images.length}</span>
         </div>
         {images.map((image, index) => (
-          <GalleryItem
+          <GalleryItem 
             key={src}
             index={index}
             {...image}
-            updateActiveImage={handleUpdateActiveImage}
+            updateActiveImage={updateActiveImage}
           />
         ))}
       </div>
